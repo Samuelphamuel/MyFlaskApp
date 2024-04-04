@@ -1,0 +1,65 @@
+<!-- App html -->
+<html lang="en">
+
+    <head>
+        <title>Sales Data</title>
+        <style>
+            body{
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                min-height: 100vh;
+            }
+
+            h2,
+            form{
+                text-align: center;
+                margin-bottom: 20px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Sales Data</h1>
+        </div>
+        <div class="add_sale">
+            <h2>Add New Sale</h2>
+
+            <form action="/create" method="POST">
+                <label for= "id">ID</label>
+                <input type="number" id="id" name="id" required<br>
+                <label for="store_code">Store_Code:</label>
+                <input type="text" id="store_code" name="store_code" required><br>
+                <label for="total_sale">Total_Sale:</label>
+                <input type="number" id="total_sale" name="total_sale" step="0.01" required><br>
+                <label for="transaction_date">Transaction_Date:</label>
+                <input type="date" id="transaction_date" name="transaction_date" required><br>
+                <input type="submit" value="Add Sale">
+            </form>
+
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Store_Code</th>
+                    <th>Total_Sale</th>
+                    <th>Transaction_Date</th>
+                    <th>Action</th>
+                </tr>
+                {% for sale in sales %}
+                <tr>
+                    <td>{{ sale.id }}</td>
+                    <td>{{ sale.store_code }}</td>
+                    <td>{{ sale.total_sale }}</td>
+                    <td>{{ sale.transaction_date }}</td>
+                    <td><a href="/delete/{{ sale.id }}">Delete</a> | <a href="/update/{{ sale.id }}">Update</a></td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+
+
+</html>
