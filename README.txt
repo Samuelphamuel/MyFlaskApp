@@ -38,4 +38,3 @@ How To Run
 -Samuel Pham
 
 Upload and share repository (imelendez@cbac.com)
-# git init - git add . (add everything in directory) - git commit -m "init app"
