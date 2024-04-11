@@ -10,13 +10,13 @@
 
             <form action="/update/{{ sale.id }}" method="POST">
                 <label for= "id">ID</label>
-                <input type="number" id="id" name="id" value="{{sale.id}}" <br>
+                <input type="number" id="id" name="id" value="{{sale.id}}"><br>
                 <label for="store_code">Store_Code:</label>
-                <input type="text" id="store_code" name="store_code" value="{{sale.store_code}}" <br>
+                <input type="text" id="store_code" name="store_code" value="{{sale.store_code}}"><br>
                 <label for="total_sale">Total_Sale:</label>
-                <input type="number" id="total_sale" name="total_sale" value="{{sale.total_sale}}" <br>
+                <input type="number" id="total_sale" name="total_sale" value="{{sale.total_sale}}"><br>
                 <label for="transaction_date">Transaction_Date:</label>
-                <input type="date" id="transaction_date" name="transaction_date" value="{{sale.transaction_date.strftime('%Y-%m-%d')}}" <br>
+                <input type="date" id="transaction_date" name="transaction_date" value="{{sale.transaction_date.strftime('%Y-%m-%d')}}"><br>
             </form>
 
         </table>
@@ -24,7 +24,7 @@
         <h2>Update Sale</h2>
         <form action="/update/{{ sale.id }}" method="POST">
             <label for= "id">New_ID</label>
-            <input type="number" id="id" name="id" required<br>
+            <input type="number" id="id" name="id" required><br>
             <label for="store_code">New_Store_Code:</label>
             <input type="text" id="store_code" name="store_code" required><br>
             <label for="total_sale">New_Total_Sale:</label>
