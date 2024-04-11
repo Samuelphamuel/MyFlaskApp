@@ -130,19 +130,22 @@ def get_sales_data():
 # POST endpoint to add new row to MySQL database
 @app.route('/add_row', methods=['POST'])
 def add_row():
-    data = request.json()
+    if request.method == 'POST':
+        data = request.json()
 
-    # Extract parameters from request
-    new_sale = Sales(
-        id = data['id'],
-        store_code = data['store_code'],
-        total_sales = data['total_sales'],
-        transaction_date = data['transaction_date']
-    )
+        # Extract parameters from request
+        new_sale = Sales(
+            id = data['id'],
+            store_code = data['store_code'],
+            total_sales = data['total_sales'],
+            transaction_date = data['transaction_date']
+        )
 
-    db.session.add(new_sale)
-    db.session.commit()
-    return jsonify({'message': 'Sale added successfully to database.'})
+        db.session.add(new_sale)
+        db.session.commit()
+        return jsonify({'message': 'Sale added successfully to database.'})
+    else:
+        return jsonify({'message': 'Error adding sale.'})
 
 
 # To run the Flask app
